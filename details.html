@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="de" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Berichtsheft KW 40</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="h-full bg-slate-100 text-slate-800 flex items-center justify-center p-3 sm:p-6">
+
+<main class="w-full max-w-4xl h-[90vh] bg-slate-50 rounded-2xl shadow-xl border border-slate-200 overflow-hidden flex flex-col">
+
+  <!-- Kopfbereich -->
+  <header class="flex justify-between items-center gap-3 px-5 py-4 bg-white border-b border-slate-200">
+    <div class="flex items-center gap-3">
+      <a href="index.html#normal" class="px-3 py-2 bg-slate-100 rounded-lg text-sm hover:bg-indigo-100 hover:text-indigo-700">
+        ← Zurück
+      </a>
+      <div>
+        <h1 class="text-lg sm:text-xl font-bold">Berichtsheft KW 40</h1>
+        <p class="text-xs text-slate-500">28.09. – 02.10.2026</p>
+      </div>
+    </div>
+    <span class="text-xs font-medium bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full">Genehmigt</span>
+  </header>
+
+  <!-- Erfolgsmeldung -->
+  <div id="speichern-erfolg" class="hidden target:flex mx-4 sm:mx-6 mt-4 p-3 bg-emerald-50 border border-emerald-200 rounded-xl items-center gap-3">
+    <span class="text-emerald-600 text-xl">✓</span>
+    <div>
+      <p class="text-sm font-semibold text-emerald-800">Erfolgreich gespeichert!</p>
+      <p class="text-xs text-emerald-700">Deine Änderungen wurden erfolgreich gespeichert.</p>
+    </div>
+  </div>
+
+  <!-- Fehlermeldung -->
+  <div id="speichern-fehler" class="hidden target:flex mx-4 sm:mx-6 mt-4 p-3 bg-red-50 border border-red-200 rounded-xl items-center gap-3">
+    <span class="text-red-600 text-xl">!</span>
+    <div>
+      <p class="text-sm font-semibold text-red-800">Speichern fehlgeschlagen</p>
+      <p class="text-xs text-red-700">Deine Änderungen konnten nicht gespeichert werden. Bitte versuche es erneut.</p>
+    </div>
+  </div>
+
+  <!-- Validierungsfehler -->
+  <div id="validierung" class="hidden target:flex mx-4 sm:mx-6 mt-4 p-3 bg-amber-50 border border-amber-200 rounded-xl items-center gap-3">
+    <span class="text-amber-600 text-xl">!</span>
+    <div>
+      <p class="text-sm font-semibold text-amber-800">Eingaben überprüfen</p>
+      <p class="text-xs text-amber-700">Mindestens ein Pflichtfeld ist leer oder enthält zu wenige Zeichen.</p>
+    </div>
+  </div>
+
+  <!-- Eingereicht -->
+  <div id="eingereicht" class="hidden target:flex mx-4 sm:mx-6 mt-4 p-3 bg-blue-50 border border-blue-200 rounded-xl items-center gap-3">
+    <span class="text-blue-600 text-xl">✓</span>
+    <div>
+      <p class="text-sm font-semibold text-blue-800">Bericht erfolgreich eingereicht!</p>
+      <p class="text-xs text-blue-700">Dein Ausbilder kann den Bericht jetzt überprüfen.</p>
+    </div>
+  </div>
+
+  <!-- Ladezustand -->
+  <div id="laden" class="hidden target:flex flex-1 flex-col items-center justify-center gap-3">
+    <div class="w-10 h-10 border-4 border-indigo-100 border-t-indigo-600 rounded-full animate-spin"></div>
+    <p class="font-semibold text-sm">Bericht wird geladen...</p>
+    <p class="text-xs text-slate-500">Bitte einen Moment warten.</p>
+  </div>
+
+  <!-- Formular -->
+  <form id="normal" class="hidden target:flex flex-1 flex-col min-h-0">
+
+    <div class="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4">
+
+      <div class="bg-white border border-slate-200 rounded-xl p-4">
+        <label for="taetigkeiten" class="block font-semibold text-sm mb-3">Ausgeführte Tätigkeiten *</label>
+        <textarea id="taetigkeiten" required minlength="10" rows="4"
+                  class="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white invalid:border-red-400 invalid:bg-red-50">- Einarbeitung in Tailwind CSS und Responsive Design
+- Erstellung von UI-Komponenten für Webseiten
+- Code-Review mit dem Ausbilder</textarea>
+        <p class="hidden empty:block text-xs text-red-600 mt-2">Dieses Feld ist ein Pflichtfeld.</p>
+        <p class="text-xs text-slate-400 mt-2">Mindestens 10 Zeichen erforderlich.</p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-xl p-4">
+        <label for="themen" class="block font-semibold text-sm mb-3">Themen der Woche *</label>
+        <textarea id="themen" required minlength="10" rows="4"
+                  class="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white invalid:border-red-400 invalid:bg-red-50">- Modernes Webdesign mit CSS Grid und Flexbox
+- Grundlagen barrierefreier Oberflächen</textarea>
+        <p class="text-xs text-slate-400 mt-2">Mindestens 10 Zeichen erforderlich.</p>
+      </div>
+
+      <div class="bg-white border border-slate-200 rounded-xl p-4">
+        <label for="schule" class="block font-semibold text-sm mb-3">Berufsschule *</label>
+        <textarea id="schule" required minlength="10" rows="4"
+                  class="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white invalid:border-red-400 invalid:bg-red-50">- Fachkunde: Datenbanken und Normalformen
+- Wirtschafts- und Sozialkunde: Arbeitsrecht</textarea>
+        <p class="text-xs text-slate-400 mt-2">Mindestens 10 Zeichen erforderlich.</p>
+      </div>
+
+    </div>
+
+    <!-- Aktionen -->
+    <footer class="px-4 sm:px-6 py-3 border-t border-slate-200 bg-white flex justify-end gap-2">
+      <button type="button" class="px-4 py-2 bg-white border border-slate-200 rounded-lg text-sm hover:border-indigo-400">
+        Speichern
+      </button>
+      <button type="button" class="px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-semibold hover:bg-indigo-700">
+        Einreichen
+      </button>
+    </footer>
+
+  </form>
+
+</main>
+
+</body>
+</html>

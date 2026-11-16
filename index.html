@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="de" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Berichtsübersicht</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="h-full bg-slate-100 text-slate-800 flex items-center justify-center p-3 sm:p-6">
+
+<main class="w-full max-w-4xl h-[90vh] bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden flex flex-col">
+
+  <!-- Kopfbereich -->
+  <header class="flex justify-between items-center gap-4 px-5 py-4 border-b border-slate-200 bg-slate-50">
+    <div>
+      <h1 class="text-xl sm:text-2xl font-bold">Berichtsübersicht</h1>
+      <p class="text-sm text-slate-500">Ausbildungsjahr 1</p>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <div class="text-right">
+        <p class="text-xs text-indigo-600 font-semibold">AZUBI</p>
+        <p class="text-sm font-semibold">Max Mustermann</p>
+        <p class="text-xs text-slate-500">Nr. 12345</p>
+      </div>
+      <div class="hidden sm:flex w-10 h-10 rounded-full bg-indigo-600 text-white items-center justify-center font-bold">
+        MM
+      </div>
+    </div>
+  </header>
+
+  <!-- Filter und Suche -->
+  <div class="flex items-center justify-between gap-3 px-4 sm:px-6 py-4">
+
+    <details class="relative">
+      <summary class="list-none cursor-pointer px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-sm font-medium hover:border-indigo-400">
+        Filter
+      </summary>
+
+      <div class="absolute left-0 mt-2 w-52 bg-white border border-slate-200 rounded-xl shadow-lg p-2 z-10">
+        <p class="px-3 pt-1 pb-2 text-xs font-semibold text-slate-400 uppercase">Status</p>
+        <a href="#" class="block px-3 py-2 rounded-lg text-sm bg-indigo-50 text-indigo-700 font-semibold">Alle</a>
+        <a href="#" class="block px-3 py-2 rounded-lg text-sm hover:bg-slate-50">Genehmigt</a>
+        <a href="#" class="block px-3 py-2 rounded-lg text-sm hover:bg-slate-50">Eingereicht</a>
+        <a href="#" class="block px-3 py-2 rounded-lg text-sm hover:bg-slate-50">In Bearbeitung</a>
+      </div>
+    </details>
+
+    <input type="search"
+           placeholder="Berichte suchen..."
+           class="w-full max-w-xs px-3 py-2.5 border border-slate-200 rounded-xl bg-slate-50 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white">
+  </div>
+
+  <!-- Normaler Zustand -->
+  <div id="normal" class="hidden target:block flex-1 overflow-y-auto px-4 sm:px-6 pb-4 space-y-3">
+
+    <a href="details.html" class="block p-4 border border-slate-200 rounded-xl hover:border-indigo-400 hover:shadow-md transition">
+      <div class="flex justify-between items-center gap-3">
+        <h2 class="font-bold">Berichtsheft KW 40</h2>
+        <span class="text-xs font-medium bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full">Genehmigt</span>
+      </div>
+      <p class="text-xs text-slate-400 mt-1">28.09. – 02.10.2026</p>
+      <p class="text-sm text-slate-600 mt-2">Einarbeitung in Tailwind CSS und Responsive Design</p>
+    </a>
+
+    <a href="details.html" class="block p-4 border border-slate-200 rounded-xl hover:border-indigo-400 hover:shadow-md transition">
+      <div class="flex justify-between items-center gap-3">
+        <h2 class="font-bold">Berichtsheft KW 39</h2>
+        <span class="text-xs font-medium bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Eingereicht</span>
+      </div>
+      <p class="text-xs text-slate-400 mt-1">21.09. – 25.09.2026</p>
+      <p class="text-sm text-slate-600 mt-2">Fehlersuche im Ticketsystem und API-Dokumentation</p>
+    </a>
+
+    <a href="details.html" class="block p-4 border border-slate-200 rounded-xl hover:border-indigo-400 hover:shadow-md transition">
+      <div class="flex justify-between items-center gap-3">
+        <h2 class="font-bold">Berichtsheft KW 38</h2>
+        <span class="text-xs font-medium bg-amber-100 text-amber-800 px-3 py-1 rounded-full">In Bearbeitung</span>
+      </div>
+      <p class="text-xs text-slate-400 mt-1">14.09. – 18.09.2026</p>
+      <p class="text-sm text-slate-600 mt-2">Installation von VS Code und Einführung in Git</p>
+    </a>
+  </div>
+
+  <!-- Ladefehler -->
+  <div id="ladefehler" class="hidden target:flex flex-1 items-center justify-center p-8">
+    <div class="text-center max-w-sm">
+      <div class="w-14 h-14 mx-auto bg-red-100 text-red-600 rounded-full flex items-center justify-center text-2xl font-bold">!</div>
+      <h2 class="font-bold text-lg mt-4">Berichte konnten nicht geladen werden</h2>
+      <p class="text-sm text-slate-500 mt-2">Beim Laden deiner Berichte ist ein Fehler aufgetreten. Bitte versuche es erneut.</p>
+      <a href="#normal" class="inline-block mt-5 bg-indigo-600 text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-indigo-700">Erneut versuchen</a>
+    </div>
+  </div>
+
+  <!-- Keine Berichte -->
+  <div id="leer" class="hidden target:flex flex-1 items-center justify-center p-8">
+    <div class="text-center max-w-sm">
+      <div class="w-14 h-14 mx-auto bg-slate-100 text-slate-500 rounded-full flex items-center justify-center text-2xl">📁</div>
+      <h2 class="font-bold text-lg mt-4">Noch keine Berichte vorhanden</h2>
+      <p class="text-sm text-slate-500 mt-2">Du hast bisher keine Berichte erstellt. Sobald du einen Bericht anlegst, wird er hier angezeigt.</p>
+    </div>
+  </div>
+
+  <!-- Keine Suchergebnisse -->
+  <div id="keine-ergebnisse" class="hidden target:flex flex-1 items-center justify-center p-8">
+    <div class="text-center max-w-sm">
+      <div class="w-14 h-14 mx-auto bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-2xl">⌕</div>
+      <h2 class="font-bold text-lg mt-4">Keine Ergebnisse gefunden</h2>
+      <p class="text-sm text-slate-500 mt-2">Zu deiner Suche wurden keine passenden Berichte gefunden. Überprüfe deinen Suchbegriff.</p>
+      <a href="#normal" class="inline-block mt-5 text-indigo-600 text-sm font-semibold hover:underline">Suche zurücksetzen</a>
+    </div>
+  </div>
+
+  <!-- Seitenauswahl -->
+  <footer class="px-4 sm:px-6 py-3 border-t border-slate-200 bg-slate-50 flex justify-between items-center">
+    <span class="text-sm text-slate-500">Seite 1 von 3</span>
+    <div class="flex gap-2">
+      <button class="w-10 h-10 bg-indigo-600 text-white rounded-lg text-sm font-semibold">1</button>
+      <button class="w-10 h-10 bg-white border border-slate-200 rounded-lg text-sm hover:border-indigo-400">2</button>
+      <button class="w-10 h-10 bg-white border border-slate-200 rounded-lg text-sm hover:border-indigo-400">3</button>
+    </div>
+  </footer>
+
+</main>
+
+</body>
+</html>
